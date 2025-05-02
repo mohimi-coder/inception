@@ -1,0 +1,72 @@
+
+services:
+#======================Mariadb=====================
+  mariadb:
+    image: mariadb:mohimi
+    container_name: mariadb
+    build: ./requirements/mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+    env_file:
+      - .env
+    networks:
+      - myserv
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "nc", "-zv", "mariadb", "3306"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+  #========================= Nginx=====================
+
+  
+  nginx:
+    container_name: nginx
+    image: nginx:mohimi
+    build: ./requirements/nginx
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress:/var/www/wordpress
+    env_file:
+      - .env
+    networks:
+      - myserv
+    restart: on-failure
+  #=========================== Wordpress ===============
+  wordpress:
+    image: wordpress:mohimi
+    container_name: wordpress
+    build: ./requirements/wordpress
+    depends_on:
+      mariadb :
+        condition: service_healthy
+
+    volumes:
+      - wordpress:/var/www/wordpress
+    env_file:
+      - .env
+    networks:
+      - myserv
+    restart: on-failure
+#=================== volumes ===========================
+volumes:
+  mariadb:
+    driver: local
+    driver_opts:
+      device: /home/mohimi/data/mariadb
+      type: none
+      o: bind
+
+  wordpress:
+    driver: local
+    driver_opts:
+      device: /home/mohimi/data/wordpress
+      type: none
+      o: bind
+#================ Networks =====================
+networks:
+  myserv:
+    name: myserv
