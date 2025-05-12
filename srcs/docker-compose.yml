@@ -19,7 +19,6 @@ services:
       retries: 10
   #========================= Nginx=====================
 
-  
   nginx:
     container_name: nginx
     image: nginx:mohimi

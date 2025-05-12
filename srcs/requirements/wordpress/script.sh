@@ -15,9 +15,9 @@ echo "ensures that the web server has the correct access ..."
 chown -R www-data:www-data /var/www/wordpress
 #---------------------------------------------------wordpress installation-------------
 wp core download --allow-root
-wp core config --dbhost=mariadb:3306 --dbname="mohimi-db" --dbuser="mhimi" --dbpass="2025" --allow-root
-wp core install --url="localhost" --title="hello" --admin_user="hhimi" --admin_password="1111" --admin_email="hhimi@gmail.com" --allow-root
-wp user create "ohimi" "ohimi@gmail.com" --user_pass="2222" --role="author" --allow-root
+wp core config --dbhost=mariadb:3306 --dbname="$MYSQL_DB" --dbuser="$MYSQL_USER" --dbpass="$MYSQL_PASSWORD" --allow-root
+wp core install --url="$DOMAIN_NAME" --title="$WP_TITLE" --admin_user="$WP_ADMIN_N" --admin_password="$WP_ADMIN_P" --admin_email="$WP_ADMIN_E" --allow-root
+wp user create "$WP_U_NAME" "$WP_U_EMAIL" --user_pass="$WP_U_PASS" --role="$WP_U_ROLE" --allow-root
 
 #---------------------------------------------------php config---------------------------------------------------#
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf

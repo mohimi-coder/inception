@@ -1,7 +1,7 @@
 all:
 	mkdir -p ~/data/wordpress
 	mkdir -p ~/data/mariadb
-	docker compose -f srcs/docker-compose.yml up --build
+	docker compose -f srcs/docker-compose.yml up --build -d
 
 clean:
 	docker compose -f srcs/docker-compose.yml down -v
