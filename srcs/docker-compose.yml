@@ -112,19 +112,18 @@ services:
     restart: on-failure
 #=================== service ==========================
 
-  # # Portainer Service (Docker Management Tool)
-  # service:
-  #   image: service:mohimi
-  #   container_name: mohimi
-  #   build:
-  #     context: ./requirements/bonus/service
-  #   ports:
-  #     - "6000:6000"
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   networks:
-  #     - myserv
-  #   restart: on-failure
+  my_service:
+    image: my_service:mohimi
+    container_name: my_service
+    build:
+      context: ./requirements/bonus/my_service
+    ports:
+      - "5003:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - myserv
+    restart: on-failure
 
 #=================== volumes ===========================
 
