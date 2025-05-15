@@ -35,6 +35,7 @@ services:
       - myserv
     restart: on-failure
   #=========================== Wordpress ===============
+
   wordpress:
     image: wordpress:mohimi
     container_name: wordpress
@@ -50,7 +51,83 @@ services:
     networks:
       - myserv
     restart: on-failure
+
+#================= adminer =============================
+
+  adminer:
+    image: adminer:mohimi
+    container_name: adminer
+    build:
+      ./requirements/bonus/adminer
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+    ports:
+      - "7070:8080"
+    networks:
+      - myserv
+    restart: on-failure
+
+#=================== redis ============================
+
+  redis:
+    image: redis:mohimi
+    build: ./requirements/bonus/redis
+    container_name: redis
+    ports:
+      - "6979:6979"
+    networks:
+      - myserv
+    restart: on-failure
+#================== myweb ==============================
+
+  myweb:
+    image: myweb:mohimi
+    container_name: myweb
+    build:
+      ./requirements/bonus/myweb
+    ports:
+      - "7000:7000"
+    networks:
+      - myserv
+    restart: on-failure
+#=================== ftp ===============================
+
+  ftp:
+    container_name: ftp
+    image: ftp:mohimi
+    build: ./requirements/bonus/ftp
+    ports:
+      - "21:21"
+      - "4000-4100:4000-4100"
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress:/var/www/wordpress
+    env_file:
+      - .env
+    networks:
+      - myserv
+    restart: on-failure
+#=================== service ==========================
+
+  # # Portainer Service (Docker Management Tool)
+  # service:
+  #   image: service:mohimi
+  #   container_name: mohimi
+  #   build:
+  #     context: ./requirements/bonus/service
+  #   ports:
+  #     - "6000:6000"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   networks:
+  #     - myserv
+  #   restart: on-failure
+
 #=================== volumes ===========================
+
 volumes:
   mariadb:
     driver: local
