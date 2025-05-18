@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:bullseye
 
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y vsftpd
 COPY ./tools/script.sh .

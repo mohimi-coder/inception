@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:bullseye
 
 RUN apt-get update && apt-get upgrade -y && \
 	apt-get install -y mariadb-server netcat

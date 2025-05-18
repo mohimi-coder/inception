@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:bullseye
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y wget php php-mysqli
 COPY ./tools/script.sh /script.sh
 RUN chmod +x /script.sh && /script.sh
