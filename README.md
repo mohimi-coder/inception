@@ -52,15 +52,15 @@ Boot Time	Seconds	Minutes
 The Challenge: "It Works on My Machine!"
 Before Docker, developers faced environment inconsistencies:
 
-A developer writes code that runs perfectly on their machine.
+➤ A developer writes code that runs perfectly on their machine.
 
-A tester tries to run the same code—but it fails.
+➤ A tester tries to run the same code—but it fails.
 
-Missing dependencies
+➤ Missing dependencies
 
-Incorrect environment variables
+➤ Incorrect environment variables
 
-Version conflicts (e.g., Python 3.8 vs. 3.10)
+➤ Version conflicts (e.g., Python 3.8 vs. 3.10)
 
 The Solution: Docker’s Containerization
 Docker eliminates environment inconsistencies by:
