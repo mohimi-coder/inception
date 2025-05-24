@@ -5,7 +5,7 @@
   </a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=180&text=Hi,%20welcome%20to%20my%20Inception!&fontSize=24&fontAlignY=32&animation=twinkling" alt="header" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=180&text=Hi,%20welcome%20to%20Inception_project!&fontSize=24&fontAlignY=32&animation=twinkling" alt="header" width="100%" />
 <samp>
 
 Project Inception: A Comprehensive Guide to Docker & Containerization
