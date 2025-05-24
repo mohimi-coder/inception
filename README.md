@@ -1,3 +1,13 @@
+<h1 align="center">Inception_42_1337 </h1>
+<p align="center">
+  <a href="https://github.com/mohimi-coder/inception">
+    <img src="https://raw.githubusercontent.com/mohimi-coder/1337_badges/refs/heads/master/inceptionm.png" alt="42 Badge">
+  </a>
+</p>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=180&text=Hi,%20welcome%20to%20my%20Inception!&fontSize=24&fontAlignY=32&animation=twinkling" alt="header" width="100%" />
+<samp>
+
 Project Inception: A Comprehensive Guide to Docker & Containerization
 📌 Overview
 
@@ -196,6 +206,12 @@ Volumes ensure persistent data for WordPress and DB.
   ✔ Persistence: Volumes (mariable_volume, /var/lib/mysql) retain data.
   
   ✔ CLI Management: wp-cli for WordPress administration.
+
+  <img src="https://capsule-render.vercel.app/api?type=soft&color=timeGradient&height=30&section=footer" width="100%"/>
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2373B7F7&center=true&vCenter=true&lines=Thanks+for+your+Time+🤗)](https://git.io/typing-svg)
+
+<img src="https://capsule-render.vercel.app/api?type=soft&color=timeGradient&height=30&section=footer" width="100%"/>
 
 
 
